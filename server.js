@@ -79,14 +79,6 @@ app.get("/images", async (req, res) => {
     res.json(images);
 });
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Handle root route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 // Serve static files for uploaded images
 app.use('/uploads', express.static('uploads'));
 
