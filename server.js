@@ -79,6 +79,15 @@ app.get("/images", async (req, res) => {
     res.json(images);
 });
 
+// Serve all files in the current directory
+app.use(express.static(__dirname));
+
+// Handle the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+
 // Serve static files for uploaded images
 app.use('/uploads', express.static('uploads'));
 
